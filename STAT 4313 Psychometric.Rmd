@@ -121,6 +121,7 @@ true_score
 ```
 Mary's true proficiency score on the statistics exam at State University Gadau is approximately 49.74.
 
+
 This means that if Mary were to take an infinite number of similar exams under the same conditions, her average score would tend towards 49.74, representing her true proficiency level in statistics.
 
 This example illustrates how we can use the classical test theory model to estimate true scores based on observed scores and the reliability of the exam instrument.
