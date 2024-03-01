@@ -1,12 +1,117 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-STAT 4313 Psychometric
-================
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-## Introduction to Psychometric
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{stat-4313-psychometric}{%
+\section{STAT 4313 Psychometric}\label{stat-4313-psychometric}}
+
+\hypertarget{introduction-to-psychometric}{%
+\subsection{Introduction to
+Psychometric}\label{introduction-to-psychometric}}
 
 Psychometrics is a way to study how we measure things in psychology. It
 helps us make sure our tests are reliable (give the same results every
@@ -56,33 +161,42 @@ clinical psychology, educational psychology, and
 industrial-organizational psychology, and is essential for understanding
 and evaluating psychological phenomena.
 
-### Examples:
+\hypertarget{examples}{%
+\subsubsection{Examples:}\label{examples}}
 
-1.  In educational psychology, a teacher wants to measure the reading
-    ability of their students. They develop a reading comprehension test
-    for their class and administer it twice, two weeks apart. The
-    teacher calculates the test-retest reliability by comparing the
-    scores from both administrations of the test. They find that the
-    test is highly reliable, meaning that students’ scores are
-    consistent over time, indicating that their reading ability has not
-    changed significantly. This test can be used to accurately measure
-    the reading ability of the students in this class.
-2.  In clinical psychology, a therapist wants to assess their client’s
-    depression symptoms. They use a standardized depression assessment
-    tool that has been validated through several studies. The therapist
-    explains to the client that the tool has high construct validity,
-    meaning that it is accurately measuring depression symptoms. The
-    therapist can use this information to help diagnose and treat the
-    client’s depression symptoms.
-3.  In industrial-organizational psychology, a company wants to assess
-    the personality traits of potential job candidates. They use a
-    personality assessment tool that has been validated and has high
-    inter-rater reliability. The HR department can use this tool to
-    accurately measure the personality traits of job candidates and
-    determine if they are a good fit for the company culture and job
-    requirements.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In educational psychology, a teacher wants to measure the reading
+  ability of their students. They develop a reading comprehension test
+  for their class and administer it twice, two weeks apart. The teacher
+  calculates the test-retest reliability by comparing the scores from
+  both administrations of the test. They find that the test is highly
+  reliable, meaning that students’ scores are consistent over time,
+  indicating that their reading ability has not changed significantly.
+  This test can be used to accurately measure the reading ability of the
+  students in this class.
+\item
+  In clinical psychology, a therapist wants to assess their client’s
+  depression symptoms. They use a standardized depression assessment
+  tool that has been validated through several studies. The therapist
+  explains to the client that the tool has high construct validity,
+  meaning that it is accurately measuring depression symptoms. The
+  therapist can use this information to help diagnose and treat the
+  client’s depression symptoms.
+\item
+  In industrial-organizational psychology, a company wants to assess the
+  personality traits of potential job candidates. They use a personality
+  assessment tool that has been validated and has high inter-rater
+  reliability. The HR department can use this tool to accurately measure
+  the personality traits of job candidates and determine if they are a
+  good fit for the company culture and job requirements.
+\end{enumerate}
 
-### A Brief History of Psychometrics
+\hypertarget{a-brief-history-of-psychometrics}{%
+\subsubsection{A Brief History of
+Psychometrics}\label{a-brief-history-of-psychometrics}}
 
 Psychometrics is a branch of psychology that deals with the measurement
 of human abilities, traits, and characteristics. It involves the use of
@@ -117,7 +231,9 @@ continue to change, psychometricians will undoubtedly continue to
 develop new and innovative ways to measure and evaluate human abilities,
 traits, and characteristics.
 
-### Sub-fields of Psychometrics
+\hypertarget{sub-fields-of-psychometrics}{%
+\subsubsection{Sub-fields of
+Psychometrics}\label{sub-fields-of-psychometrics}}
 
 Psychometrics is the field of study that focuses on the measurement of
 psychological traits, such as intelligence, personality, and abilities.
@@ -157,22 +273,28 @@ anyone interested in the field of psychometrics, as they provide a
 comprehensive understanding of the different aspects of psychological
 measurement.
 
-### Concrete examples:
+\hypertarget{concrete-examples}{%
+\subsubsection{Concrete examples:}\label{concrete-examples}}
 
-- Classical test theory: A psychologist wants to measure the IQ of a
+\begin{itemize}
+\tightlist
+\item
+  Classical test theory: A psychologist wants to measure the IQ of a
   group of 10-year-old children in a school with a standardized test. He
   uses a reliability analysis to confirm that the test is consistent and
   produces similar results over time. He also uses a validity analysis
   to check that the test measures intelligence and not something else,
   such as reading ability.
-- Item response theory: A company wants to hire a new employee and uses
+\item
+  Item response theory: A company wants to hire a new employee and uses
   a computerized adaptive test to measure their problem-solving skills.
   The test uses item response theory to select the most appropriate
   questions for the individual, based on their previous answers. The
   test adjusts the difficulty level of the questions to match the
   ability of the person being tested, providing a more accurate
   assessment of their skills.
-- Factor analysis: A researcher is interested in understanding the
+\item
+  Factor analysis: A researcher is interested in understanding the
   different dimensions of depression in a group of adults. She uses a
   factor analysis to identify the common factors that contribute to the
   variation in the observed scores. Based on the results of the factor
@@ -182,92 +304,111 @@ measurement.
   psychometricians use statistical methods and theories to develop and
   validate tests and measurement tools for various purposes such as
   clinical assessments, personnel selection, and research.
+\end{itemize}
 
-### Additional Examples
+\hypertarget{additional-examples}{%
+\subsubsection{Additional Examples}\label{additional-examples}}
 
-1.  A school district is interested in assessing the intelligence of
-    their students to ensure that they are receiving appropriate
-    educational services. They hire a psychometrician to develop an
-    intelligence test that is reliable and valid. The psychometrician
-    uses classical test theory to ensure that the test is consistent and
-    accurate, and item response theory to identify the most appropriate
-    items to measure intelligence.
-2.  A hospital is looking to hire new nurses and wants to ensure that
-    they are selecting the most qualified candidates. They hire a
-    psychometrician to develop a personnel selection test that is
-    reliable and valid. The psychometrician uses classical test theory
-    to ensure that the test is consistent and accurate, factor analysis
-    to identify the different dimensions of nursing skills and
-    abilities, and item response theory to select the most appropriate
-    items to measure these dimensions.
-3.  A researcher is interested in studying the relationship between
-    personality traits and job performance. They hire a psychometrician
-    to develop a personality assessment that is reliable and valid. The
-    psychometrician uses classical test theory to ensure that the test
-    is consistent and accurate and factor analysis to identify the
-    different personality traits being measured and their relationships
-    to each other.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A school district is interested in assessing the intelligence of their
+  students to ensure that they are receiving appropriate educational
+  services. They hire a psychometrician to develop an intelligence test
+  that is reliable and valid. The psychometrician uses classical test
+  theory to ensure that the test is consistent and accurate, and item
+  response theory to identify the most appropriate items to measure
+  intelligence.
+\item
+  A hospital is looking to hire new nurses and wants to ensure that they
+  are selecting the most qualified candidates. They hire a
+  psychometrician to develop a personnel selection test that is reliable
+  and valid. The psychometrician uses classical test theory to ensure
+  that the test is consistent and accurate, factor analysis to identify
+  the different dimensions of nursing skills and abilities, and item
+  response theory to select the most appropriate items to measure these
+  dimensions.
+\item
+  A researcher is interested in studying the relationship between
+  personality traits and job performance. They hire a psychometrician to
+  develop a personality assessment that is reliable and valid. The
+  psychometrician uses classical test theory to ensure that the test is
+  consistent and accurate and factor analysis to identify the different
+  personality traits being measured and their relationships to each
+  other.
+\end{enumerate}
 
-## Introduction to True and Error Scores
+\hypertarget{introduction-to-true-and-error-scores}{%
+\subsection{Introduction to True and Error
+Scores}\label{introduction-to-true-and-error-scores}}
 
 Psychometric testing involves the measurement of psychological
 constructs such as intelligence, personality traits, or attitudes. To
 effectively measure these constructs, we must understand the concepts of
 true and error scores.
 
-## True Score
+\hypertarget{true-score}{%
+\subsection{True Score}\label{true-score}}
 
 The true score represents the hypothetical perfect measurement of an
 individual’s true ability or trait. It is the score that would be
 obtained if our measurement instruments were perfectly reliable and free
 from any errors or biases.
 
-## Error Score
+\hypertarget{error-score}{%
+\subsection{Error Score}\label{error-score}}
 
 The error score represents the discrepancy between the true score and
 the observed score. It includes random errors, such as fluctuations in
 response due to mood or fatigue, as well as systematic errors, such as
 biases in the measurement instrument or scoring process.
 
-## Example
+\hypertarget{example}{%
+\subsection{Example}\label{example}}
 
 Let’s consider an example of a student, John, taking an intelligence
 test. If John’s true intelligence level is 120 (true score), but due to
 distractions during the test or ambiguous questions, he scores 115
 (observed score), then the error score would be 5 (115 - 120).
 
-## Calculating True Scores
+\hypertarget{calculating-true-scores}{%
+\subsection{Calculating True Scores}\label{calculating-true-scores}}
 
 In psychometric testing, we aim to estimate the true scores of
 individuals based on their observed scores and the reliability of the
 measurement instrument. One of the classical methods for estimating true
 scores is through the use of the classical test theory model.
 
-## Worked Example
+\hypertarget{worked-example}{%
+\subsection{Worked Example}\label{worked-example}}
 
 Suppose we have a test with 50 items measuring mathematical aptitude. A
 student scores 40 out of 50 on the test. The reliability coefficient of
 the test is 0.80. Using the classical test theory model, we can estimate
 the student’s true mathematical aptitude score.
 
-\$\$
-\$\$
+\$\$ \$\$
 
-``` r
-# Worked Example Calculation
-observed_score <- 40
-reliability_coefficient <- 0.80
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Worked Example Calculation}
+\NormalTok{observed\_score }\OtherTok{\textless{}{-}} \DecValTok{40}
+\NormalTok{reliability\_coefficient }\OtherTok{\textless{}{-}} \FloatTok{0.80}
 
-true_score <- observed_score / sqrt(reliability_coefficient)
-true_score
-```
+\NormalTok{true\_score }\OtherTok{\textless{}{-}}\NormalTok{ observed\_score }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(reliability\_coefficient)}
+\NormalTok{true\_score}
+\end{Highlighting}
+\end{Shaded}
 
-    ## [1] 44.72136
+\begin{verbatim}
+## [1] 44.72136
+\end{verbatim}
 
 The observed score (X), therefore, is the sum of your true score and
 error score:
 
-$$ X = T + E $$
+\[ X = T + E \]
 
 Important Points:
 
@@ -277,23 +418,37 @@ deflate your observed score. The goal of psychometrics is to minimize
 the influence of error scores and obtain a more accurate estimate of the
 true score.
 
-### Hands-on Exercise
+\hypertarget{hands-on-exercise}{%
+\subsubsection{Hands-on Exercise}\label{hands-on-exercise}}
 
-- Calculate the true score for a student who scores 75 out of 100 on a
+\begin{itemize}
+\tightlist
+\item
+  Calculate the true score for a student who scores 75 out of 100 on a
   test with a reliability coefficient of 0.90.
-- Discuss with your peers how the concept of true and error scores
+\item
+  Discuss with your peers how the concept of true and error scores
   applies to different types of psychological measurements.
+\end{itemize}
 
-### Solution to Exercise
+\hypertarget{solution-to-exercise}{%
+\subsubsection{Solution to Exercise}\label{solution-to-exercise}}
 
-- True Score = 75 / √0.90 ≈ 79.06
-- The concept of true and error scores applies not only to tests but
+\begin{itemize}
+\tightlist
+\item
+  True Score = 75 / √0.90 ≈ 79.06
+\item
+  The concept of true and error scores applies not only to tests but
   also to other psychological measurements such as surveys,
   questionnaires, and observations. By understanding these concepts,
   researchers can improve the accuracy and reliability of their
   measurements.
+\end{itemize}
 
-### Understanding Reliability Coefficient
+\hypertarget{understanding-reliability-coefficient}{%
+\subsubsection{Understanding Reliability
+Coefficient}\label{understanding-reliability-coefficient}}
 
 In psychology and other fields, when we talk about reliability, we’re
 essentially asking: “How consistent is a measurement?” The reliability
@@ -320,7 +475,8 @@ our measurement tool to give us consistent results. The higher the
 reliability coefficient, the more confident we can be in the accuracy of
 our measurements.
 
-### Additional Example:
+\hypertarget{additional-example}{%
+\subsubsection{Additional Example:}\label{additional-example}}
 
 Suppose at State University Gadau, students take a standardized exam to
 measure their proficiency in statistics. The exam consists of 50
@@ -330,17 +486,21 @@ exam. The reliability coefficient of the exam is 0.85.
 We’ll calculate Mary’s true proficiency score using the classical test
 theory model.
 
-``` r
-# Given data
-observed_score <- 45
-reliability_coefficient <- 0.85
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Given data}
+\NormalTok{observed\_score }\OtherTok{\textless{}{-}} \DecValTok{45}
+\NormalTok{reliability\_coefficient }\OtherTok{\textless{}{-}} \FloatTok{0.85}
 
-# Calculating true score
-true_score <- observed_score / sqrt(reliability_coefficient)
-true_score
-```
+\CommentTok{\# Calculating true score}
+\NormalTok{true\_score }\OtherTok{\textless{}{-}}\NormalTok{ observed\_score }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(reliability\_coefficient)}
+\NormalTok{true\_score}
+\end{Highlighting}
+\end{Shaded}
 
-    ## [1] 48.80935
+\begin{verbatim}
+## [1] 48.80935
+\end{verbatim}
 
 Mary’s true proficiency score on the statistics exam at State University
 Gadau is approximately 49.74.
@@ -352,3 +512,5 @@ representing her true proficiency level in statistics.
 This example illustrates how we can use the classical test theory model
 to estimate true scores based on observed scores and the reliability of
 the exam instrument.
+
+\end{document}
