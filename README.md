@@ -7,7 +7,7 @@ If you need any assistance or further explanation on any of the topics covered i
 
 # Courses
 - [STAT 4313: Introduction to Psychometric](https://github.com/xadex01/Lecture_Note/blob/main/Note/STAT%204313%20Psychometric/STAT%204313%20Psychometric.pdf))
-- [STAT 2203: Statistical Inference II](#a-sampler-of-widgets-and-our-pedagogy)
+- [STAT 2203: Statistical Inference II](https://xadex01.github.io/Inferential_Statistics/)
 - [STAT 3301: Distribution Theory](#online-notes)
 - [STAT 3315: Test of Hypothesis II](#what-is-new-in-the-second-edition)
 - [STAT 2211: Probability II (Distribution Theory)](#how-to-use-the-book)
